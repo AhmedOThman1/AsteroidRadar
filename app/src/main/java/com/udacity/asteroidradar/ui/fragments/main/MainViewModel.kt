@@ -53,7 +53,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private fun getPictureOfDayFromNetwork() = viewModelScope.launch {
         try {
             _pictureOfDay.value =
-                ApiClient.retrofitService.getPictureOfDay(BuildConfig.NASA_API_KEY).await()// // TODO Replace API KEY HERE
+                ApiClient.retrofitService.getPictureOfDay(BuildConfig.NASA_API_KEY).await()//  // TODO Replace API KEY HERE
         } catch (ignore: Exception) {
 
         }
