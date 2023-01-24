@@ -1,6 +1,7 @@
 package com.udacity.asteroidradar.repository
 
 import android.util.Log.w
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import com.udacity.asteroidradar.BuildConfig
 import com.udacity.asteroidradar.api.parseAsteroidsJsonResult
@@ -44,7 +45,8 @@ class AsteroidsRepository(private val asteroidsDb: AsteroidsDb) {
                     } catch (ignore: Exception) {
 
                     }
-                else {
+                else if (ignore.message!!.contains("Unable to resolve host")) {
+//                    Toast.makeText(coroutineContext,"Check your network connection!",Toast.LENGTH_LONG).show()
                     //DO NOTHING
                 }
             }
