@@ -97,7 +97,7 @@ class MainFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val asteroids = when (item.itemId) {
-//            R.id.next_week_asteroids -> viewModel.getWeekAsteroidsFromRoom()
+            R.id.next_week_asteroids -> viewModel.getWeekAsteroidsFromRoom()
             R.id.today_asteroids -> viewModel.getTodayAsteroidsFromRoom()
             else -> viewModel.getSavedAsteroidsFromRoom()
         }

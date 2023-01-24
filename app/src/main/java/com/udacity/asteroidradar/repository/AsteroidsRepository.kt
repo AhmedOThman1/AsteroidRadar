@@ -32,7 +32,7 @@ class AsteroidsRepository(private val asteroidsDb: AsteroidsDb) {
         withContext(Dispatchers.IO) {
             try {
                 val asteroids = ApiClient.retrofitService.getAsteroids(
-                    BuildConfig.NASA_API_KEY // TODO Replace API KEY HERE
+                    BuildConfig.NASA_API_KEY //TODO Replace API KEY HERE
                 ).await()
                 val list = parseAsteroidsJsonResult(JSONObject(asteroids))
                 for (asteroid in list)

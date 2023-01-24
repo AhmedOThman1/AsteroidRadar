@@ -15,14 +15,13 @@ class AsteroidWorker(appContext: Context, params: WorkerParameters) :
         const val WORK_NAME = "AsteroidWorker"
     }
 
+    //I didn't understand what are you meaning about
+    //      "use a coroutine for downloading today's asteroid list."
+    //Does this mean that to download it from the beginning of tomorrow's date and there will be another function for today?
     override suspend fun doWork(): Result {
-        Log.w("Worker", "HERE1")
         val database = AsteroidsDb.getDb(applicationContext)
-        Log.w("Worker", "HERE2")
         val asteroidsRepository = AsteroidsRepository(database)
-        Log.w("Worker", "HERE3")
         return try {
-            Log.w("Worker", "HERE4")
             asteroidsRepository.refreshAsteroids()
             Result.success()
         } catch (e: HttpException) {

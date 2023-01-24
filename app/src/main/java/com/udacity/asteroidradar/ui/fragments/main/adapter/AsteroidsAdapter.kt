@@ -34,6 +34,10 @@ class AsteroidsAdapter(
         fun bind(item: Asteroid, asteroidListener: AsteroidListener) {
             binding.asteroid = item
             binding.clickListener = asteroidListener
+            binding.statusIcon.contentDescription = if (item.isPotentiallyHazardous)
+                "Potentially Hazardous"
+            else
+                "Not Hazardous"
         }
 
         companion object {
